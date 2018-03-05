@@ -1,14 +1,14 @@
 import React from 'react';
 
 const BookItem = ({
-  id = '',
-  title = '',
+  id,
+  title,
   subtitle = '',
   authors = [],
   publisher = '',
   publishedDate = '',
   description = '',
-  imageLink = '',
+  imageLink,
 }) => (
   <div>
     <img src={imageLink} alt={title || ''} />
