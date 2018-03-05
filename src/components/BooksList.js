@@ -41,7 +41,7 @@ export default class Booklist extends React.Component {
         };
       },
     );
-    this.setState({ books: books });
+    this.setState({ books });
   };
 
   render() {
