@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BooksList from './components/BooksList';
+import Header from './components/Header';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        Hello
-        <BooksList />
+        <Header />
       </div>
     );
   }
