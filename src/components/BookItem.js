@@ -9,9 +9,10 @@ const BookItem = ({
   publishedDate = '',
   description = '',
   imageLink,
+  pageCount = '',
 }) => (
   <div>
-    <img src={imageLink} alt={title || ''} />
+    <img src={imageLink} alt={title} />
     <div>
       <h2>{title}</h2>
       <h3>{subtitle}</h3>
@@ -39,6 +40,12 @@ const BookItem = ({
             <strong>Published date: </strong>
           </span>
           <span>{publishedDate}</span>
+        </div>
+        <div>
+          <span>
+            <strong>Pages: </strong>
+          </span>
+          <span>{pageCount}</span>
         </div>
         <div>
           <span>
