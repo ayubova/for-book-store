@@ -8,7 +8,7 @@ const BookItem = ({
   publisher = '',
   publishedDate = '',
   description = '',
-  imageLink,
+  imageLinks: { thumbnail: imageLink },
   pageCount = '',
 }) => (
   <div>
