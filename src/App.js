@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
+import BooksListPage from './containers/BooksListPage';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <BooksListPage />
       </div>
     );
   }
