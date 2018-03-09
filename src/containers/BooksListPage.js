@@ -2,7 +2,7 @@ import React from 'react';
 // import { List, Map, fromJS } from 'immutable';
 import BookListHeader from './BookListHeader';
 import BooksList from './BooksList';
-import searchBooks from '../utils/fetchApi';
+import { searchBooks } from '../utils/fetchApi';
 
 export default class BookListPage extends React.PureComponent {
   constructor(props) {

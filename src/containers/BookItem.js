@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BookItem = props => {
   const {
@@ -6,17 +7,15 @@ const BookItem = props => {
     title,
     subtitle = '',
     authors = [],
-    publisher = '',
-    publishedDate = '',
-    description = '',
     imageLinks: { thumbnail: imageLink } = '',
-    pageCount = '',
   } = props.book;
   return (
     <div>
       <img src={imageLink} alt={title} />
       <div>
-        <h2>{title}</h2>
+        <Link to={`/book/${id}`}>
+          <h2>{title}</h2>
+        </Link>
         <h3>{subtitle}</h3>
         <div>
           <span>
@@ -30,30 +29,6 @@ const BookItem = props => {
               <strong>Authors: </strong>
             </span>
             <span>{authors.join(', ')}</span>
-          </div>
-          <div>
-            <span>
-              <strong>Publisher: </strong>
-            </span>
-            <span>{publisher}</span>
-          </div>
-          <div>
-            <span>
-              <strong>Published date: </strong>
-            </span>
-            <span>{publishedDate}</span>
-          </div>
-          <div>
-            <span>
-              <strong>Pages: </strong>
-            </span>
-            <span>{pageCount}</span>
-          </div>
-          <div>
-            <span>
-              <strong>Description: </strong>
-            </span>
-            <span>{description}</span>
           </div>
         </section>
       </div>
