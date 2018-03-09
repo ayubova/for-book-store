@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { searchBookById } from '../utils/fetchApi';
 
 export default class BookCardPage extends React.PureComponent {
@@ -64,3 +65,11 @@ export default class BookCardPage extends React.PureComponent {
     );
   }
 }
+
+BookCardPage.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+};

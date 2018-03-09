@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BookItem from './BookItem';
 
 export default class Bookslist extends React.PureComponent {
@@ -13,3 +14,7 @@ export default class Bookslist extends React.PureComponent {
     );
   }
 }
+
+Bookslist.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.object),
+};

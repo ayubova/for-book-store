@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextBox from '../components/TextBox';
 import Button from '../components/Button';
 import SelectBox from '../components/SelectBox';
@@ -41,3 +42,7 @@ export default class BookListHeader extends React.PureComponent {
     );
   }
 }
+
+BookListHeader.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
