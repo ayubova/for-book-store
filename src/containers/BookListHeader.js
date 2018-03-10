@@ -9,7 +9,7 @@ export default class BookListHeader extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      search: { query: undefined, queryType: 'intitle' },
+      search: { query: undefined, queryType: 'intitle', startIndex: 0 },
     };
   }
 
