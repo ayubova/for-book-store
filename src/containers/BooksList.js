@@ -7,7 +7,7 @@ export default class Bookslist extends React.PureComponent {
   render() {
     const { books } = this.props;
     if (!books) {
-      return <div>not found</div>;
+      return <div>not loaded</div>;
     }
     return (
       <div>

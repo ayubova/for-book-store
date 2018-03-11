@@ -17,7 +17,7 @@ export function books(state = initialState.books, action) {
 export function setQuery(state = initialState.query, action) {
   switch (action.type) {
     case 'SET_QUERY':
-      return action.query + state;
+      return state + action.query;
     default:
       return state;
   }
