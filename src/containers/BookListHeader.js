@@ -9,25 +9,27 @@ import queryParams from '../constants/queryParams';
 
 class BookListHeader extends React.PureComponent {
   render() {
+    console.log(this.props);
     return (
       <div>
         <TextBox
           value={this.props.query}
-          onChange={this.props.setQuery(this.props.query)}
+          onChange={query => this.props.setQuery(query)}
         />
         <Button
-          onClick={this.props.fetchBooks(
-            this.props.query,
-            this.props.queryType,
-            this.props.startIndex,
-          )}
+          onClick={() =>
+            this.props.fetchBooks(
+              this.props.query,
+              this.props.queryType,
+              this.props.startIndex,
+            )
+          }
         >
-          {' '}
-          Найти{' '}
+          Найти
         </Button>
         <SelectBox
           value={this.props.queryType}
-          onChange={this.setQueryType(this.props.queryType)}
+          onChange={queryType => this.props.setQueryType(queryType)}
           options={queryParams}
         />
       </div>

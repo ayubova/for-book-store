@@ -1,7 +1,7 @@
 const initialState = {
   books: [],
   query: '',
-  queryType: '',
+  queryType: 'intitle',
   startIndex: 0,
 };
 
@@ -17,7 +17,7 @@ export function books(state = initialState.books, action) {
 export function setQuery(state = initialState.query, action) {
   switch (action.type) {
     case 'SET_QUERY':
-      return action.query;
+      return action.query + state;
     default:
       return state;
   }
