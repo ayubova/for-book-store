@@ -35,7 +35,7 @@ export function setQueryType(state = initialState.queryType, action) {
 export function setStartIndex(state = initialState.startIndex, action) {
   switch (action.type) {
     case 'SET_STARTINDEX':
-      return action.startIndex;
+      return action.startIndex + 10;
     default:
       return state;
   }

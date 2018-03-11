@@ -13,9 +13,9 @@ export function loadBooks(books) {
   };
 }
 
-export function booksFetch(search) {
+export function booksFetch(query, queryType, startIndex) {
   return dispatch => {
-    searchBooks(search)
+    searchBooks(query, queryType, startIndex)
       .then(response => response.json())
       .then(data => {
         const books = data.items.map(({ id, volumeInfo }) => {

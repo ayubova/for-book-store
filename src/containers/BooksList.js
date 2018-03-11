@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../components/Button';
 import BookItem from './BookItem';
 
 export default class Bookslist extends React.PureComponent {
@@ -10,6 +11,7 @@ export default class Bookslist extends React.PureComponent {
         {books.map(book => {
           return <BookItem key={`${book.id}`} book={book} />;
         })}
+        <Button>More books...</Button>
       </div>
     );
   }
