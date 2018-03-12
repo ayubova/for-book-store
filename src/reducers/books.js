@@ -1,3 +1,10 @@
+import {
+  LOAD_BOOKS,
+  SET_QUERY,
+  SET_QUERYTYPE,
+  SET_STARTINDEX,
+} from '../actions/actionTypes';
+
 const initialState = {
   books: [],
   query: '',
@@ -5,37 +12,20 @@ const initialState = {
   startIndex: 0,
 };
 
-export function books(state = initialState.books, action) {
+export default function books(state = initialState, action) {
   switch (action.type) {
-    case 'LOAD_BOOKS':
-      return action.books;
-    default:
-      return state;
-  }
-}
+    case LOAD_BOOKS:
+      return { ...state, books: action.books };
 
-export function setQuery(state = initialState.query, action) {
-  switch (action.type) {
-    case 'SET_QUERY':
-      return state + action.query;
-    default:
-      return state;
-  }
-}
+    case SET_QUERY:
+      return { ...state, query: state.query + action.query };
 
-export function setQueryType(state = initialState.queryType, action) {
-  switch (action.type) {
-    case 'SET_QUERYTYPE':
-      return action.queryType;
-    default:
-      return state;
-  }
-}
+    case SET_QUERYTYPE:
+      return { ...state, queryType: action.queryType };
 
-export function setStartIndex(state = initialState.startIndex, action) {
-  switch (action.type) {
-    case 'SET_STARTINDEX':
-      return action.startIndex + 10;
+    case SET_STARTINDEX:
+      return { ...state, startIndex: action.startIndex + 10 };
+
     default:
       return state;
   }

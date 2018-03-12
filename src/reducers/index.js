@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux';
-import { books, setQuery, setQueryType, setStartIndex } from './books';
+import books from './books';
 
 export default combineReducers({
   books,
-  setQuery,
-  setQueryType,
-  setStartIndex,
 });
