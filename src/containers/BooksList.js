@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../components/Button';
+import { connect } from 'react-redux';
 import BookItem from './BookItem';
 
-export default class Bookslist extends React.PureComponent {
+class BooksList extends React.PureComponent {
   render() {
+    console.log(this.props);
     const { books } = this.props;
     if (!books) {
       return <div>not loaded</div>;
@@ -14,12 +15,19 @@ export default class Bookslist extends React.PureComponent {
         {books.map(book => {
           return <BookItem key={`${book.id}`} book={book} />;
         })}
-        <Button>More books...</Button>
       </div>
     );
   }
 }
 
-Bookslist.propTypes = {
+BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object),
 };
+
+const mapStateToProps = state => {
+  return {
+    books: state.books.books,
+  };
+};
+
+export default connect(mapStateToProps)(BooksList);

@@ -15,16 +15,16 @@ const initialState = {
 export default function books(state = initialState, action) {
   switch (action.type) {
     case LOAD_BOOKS:
-      return { ...state, books: action.books };
+      return { ...state, books: [...state.books, ...action.books] };
 
     case SET_QUERY:
-      return { ...state, query: state.query + action.query };
+      return { ...state, query: action.query };
 
     case SET_QUERYTYPE:
       return { ...state, queryType: action.queryType };
 
     case SET_STARTINDEX:
-      return { ...state, startIndex: action.startIndex + 10 };
+      return { ...state, startIndex: state.startIndex + 10 };
 
     default:
       return state;

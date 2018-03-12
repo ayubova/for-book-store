@@ -17,13 +17,19 @@ class BookListHeader extends React.PureComponent {
           onChange={query => this.props.setQuery(query)}
         />
         <Button
-          onClick={() =>
+          onClick={() => {
+            console.log(
+              'onClick:',
+              this.props.query,
+              this.props.queryType,
+              this.props.startIndex,
+            );
             this.props.fetchBooks(
               this.props.query,
               this.props.queryType,
               this.props.startIndex,
-            )
-          }
+            );
+          }}
         >
           Найти
         </Button>
@@ -38,11 +44,12 @@ class BookListHeader extends React.PureComponent {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    books: state.books,
-    query: state.query,
-    queryType: state.queryType,
-    startIndex: state.startIndex,
+    books: state.books.books,
+    query: state.books.query,
+    queryType: state.books.queryType,
+    startIndex: state.books.startIndex,
   };
 };
 
