@@ -4,7 +4,13 @@ import { connect } from 'react-redux';
 import TextBox from '../components/TextBox';
 import SelectBox from '../components/SelectBox';
 import Button from '../components/Button';
-import { booksFetch, setQuery, setQueryType, clearBooks } from '../actions';
+import {
+  booksFetch,
+  setQuery,
+  setQueryType,
+  clearBooks,
+  clearStartIndex,
+} from '../actions';
 import queryParams from '../constants/queryParams';
 
 class BookListHeader extends React.PureComponent {
@@ -12,10 +18,10 @@ class BookListHeader extends React.PureComponent {
     const {
       query,
       setQuery,
-      fetchBooks,
+      booksFetch,
       clearBooks,
       queryType,
-      startIndex,
+      clearStartIndex,
       setQueryType,
     } = this.props;
     return (
@@ -24,7 +30,8 @@ class BookListHeader extends React.PureComponent {
         <Button
           onClick={() => {
             clearBooks();
-            fetchBooks(query, queryType, startIndex);
+            clearStartIndex();
+            booksFetch(query, queryType);
           }}
         >
           Найти
@@ -43,28 +50,28 @@ const mapStateToProps = state => {
   return {
     query: state.books.query,
     queryType: state.books.queryType,
-    startIndex: state.books.startIndex,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBooks: (query, queryType, startIndex) =>
+    booksFetch: (query, queryType, startIndex = 0) =>
       dispatch(booksFetch(query, queryType, startIndex)),
     setQuery: query => dispatch(setQuery(query)),
     setQueryType: queryType => dispatch(setQueryType(queryType)),
     clearBooks: () => dispatch(clearBooks()),
+    clearStartIndex: () => dispatch(clearStartIndex()),
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookListHeader);
 
 BookListHeader.propTypes = {
-  fetchBooks: PropTypes.func.isRequired,
+  booksFetch: PropTypes.func.isRequired,
   setQuery: PropTypes.func.isRequired,
   setQueryType: PropTypes.func.isRequired,
   clearBooks: PropTypes.func.isRequired,
+  clearStartIndex: PropTypes.func.isRequired,
   query: PropTypes.string.isRequired,
   queryType: PropTypes.string.isRequired,
-  startIndex: PropTypes.number.isRequired,
 };
